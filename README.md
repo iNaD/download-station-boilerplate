@@ -13,6 +13,10 @@ This repository is used as a boilerplate for my Synology Download Station Hostin
 
 Documentation about used functions, defines etc.
 
+### Synology Logs
+
+- `/var/log/messages` contains PHP errors from hosting providers
+
 ### Synology Defined Constants
 
 ```
