@@ -2,7 +2,7 @@
 
 ## Deutsch / German
 
-Dieses Repository dient nur als Grundbaustein für meine Synology Download Station Hosting Provider.
+Dieses Repository dient nur als Grundbaustein fÃ¼r meine Synology Download Station Hosting Provider.
 
 ## Englisch / English
 
