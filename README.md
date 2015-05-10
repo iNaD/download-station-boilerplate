@@ -6,7 +6,7 @@ Dieses Repository dient nur als Grundbaustein für meine Synology Download Stati
 
 ## Englisch / English
 
-Coming soon&#x2122;
+This repository is used as a boilerplate for my Synology Download Station Hosting Providers.
 
 
 ## Development related stuff
