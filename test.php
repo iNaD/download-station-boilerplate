@@ -15,15 +15,10 @@ define('DOWNLOAD_COOKIE', 'cookiepath');
 
 $providers = [
     [
-        'class'     => 'SynoFileHostingARDMediathek',
-        'include'   => '../ardmediathek/ardmediathek.php',
+        'class'     => 'SynoFileHostingHOSTER',
+        'include'   => '../HOSTER/HOSTER.php',
         'urls'      => [
-        ]
-    ],
-    [
-        'class'     => 'SynoFileHostingZDFMediathek',
-        'include'   => '../zdfmediathek/zdfmediathek.php',
-        'urls'      => [
+            'http://HOSTER.de/file123.php'
         ]
     ],
 
