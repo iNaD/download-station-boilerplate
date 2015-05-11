@@ -1,0 +1,10 @@
+{
+    "name": "HOSTER",
+    "hostprefix": "HOSTER.de",
+    "displayname": "HOSTER",
+    "version": "0.1a",
+    "authentication": "no",
+    "module": "HOSTER.php",
+    "class": "SynoFileHostingHOSTER",
+    "description": "Download Videos from HOSTER"
+}
