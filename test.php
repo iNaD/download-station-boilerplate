@@ -13,17 +13,30 @@ define('DOWNLOAD_ISQUERYAGAIN', 'isqueryagain'); // 1: Use the original url quer
 define('DOWNLOAD_ISPARALLELDOWNLOAD', 'isparalleldownload'); //Task can download parallel flag.
 define('DOWNLOAD_COOKIE', 'cookiepath');
 
-// Testing SynoFileHostingARDMediathek
-include "../ardmediathek/ardmediathek.php";
+$providers = [
+    [
+        'class'     => 'SynoFileHostingARDMediathek',
+        'include'   => '../ardmediathek/ardmediathek.php',
+        'urls'      => [
+        ]
+    ],
+    [
+        'class'     => 'SynoFileHostingZDFMediathek',
+        'include'   => '../zdfmediathek/zdfmediathek.php',
+        'urls'      => [
+        ]
+    ],
 
-$urls = [
-    
 ];
 
-foreach($urls as $url) {
-    $Hoster = new SynoFileHostingARDMediathek($url, '', '', [], '', true);
+foreach ($providers as $provider) {
+    include_once $provider['include'];
 
-    $DownloadInfo = $Hoster->GetDownloadInfo();
+    foreach($provider['urls'] as $url) {
+        $hoster = new $provider['class']($url, '', '', [], '', false);
 
-    var_dump($DownloadInfo);
+        $downloadInfo = $hoster->GetDownloadInfo();
+
+        var_dump($downloadInfo);
+    }
 }
