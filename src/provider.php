@@ -22,6 +22,7 @@ if(!class_exists('TheiNaDProvider')) {
                 'Ö',
                 'ü',
                 'Ü',
+                '°',
             ),
             'replace' => array(
                 'ss',
@@ -31,6 +32,7 @@ if(!class_exists('TheiNaDProvider')) {
                 'Oe',
                 'ue',
                 'Ue',
+                '',
             ),
         );
 
