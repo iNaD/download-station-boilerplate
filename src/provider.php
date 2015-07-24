@@ -3,7 +3,7 @@
  * Basic Synology Hosting Provider Boilerplate
  *
  * @author Daniel Gehn <me@theinad.com>
- * @version 0.1b
+ * @version 0.1c
  * @copyright 2015 Daniel Gehn
  * @license http://opensource.org/licenses/MIT Licensed under MIT License
  */
