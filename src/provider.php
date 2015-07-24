@@ -3,7 +3,7 @@
  * Basic Synology Hosting Provider Boilerplate
  *
  * @author Daniel Gehn <me@theinad.com>
- * @version 0.1c
+ * @version 0.1d
  * @copyright 2015 Daniel Gehn
  * @license http://opensource.org/licenses/MIT Licensed under MIT License
  */
@@ -188,6 +188,29 @@ if(!class_exists('TheiNaDProvider')) {
         {
             // search backwards starting from haystack length characters from the end
             return $needle === "" || strrpos($haystack, $needle, -strlen($haystack)) !== FALSE;
+        }
+
+        /**
+         * Based on the title build a filename with the url's file extension.
+         * If no title is given, the default filename is used.
+         *
+         * @param $url
+         * @param string $title
+         * @return string
+         */
+        protected function buildFilename($url, $title = "") {
+            $pathinfo = pathinfo($url);
+
+            if(!empty($title))
+            {
+                $filename = $title . '.' . $pathinfo['extension'];
+            }
+            else
+            {
+                $filename =  $pathinfo['basename'];
+            }
+
+            return $this->safeFilename($filename);
         }
 
     }
