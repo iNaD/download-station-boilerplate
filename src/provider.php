@@ -32,6 +32,8 @@ if(!class_exists('TheiNaDProvider')) {
                 '|',
                 '?',
                 '*',
+                "\n",
+                "\r",
             ),
             'replace' => array(
                 'ss',
@@ -50,6 +52,8 @@ if(!class_exists('TheiNaDProvider')) {
                 '',
                 '',
                 '',
+                '',
+                ' ',
                 '',
             ),
         );
