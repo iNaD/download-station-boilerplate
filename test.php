@@ -16,16 +16,19 @@ define('DOWNLOAD_COOKIE', 'cookiepath');
 $providers = [
     [
         'class'     => 'SynoFileHostingHOSTER',
-        'include'   => '../HOSTER/HOSTER.php',
+        'path'      => '../HOSTER',
+        'include'   => 'HOSTER.php',
         'urls'      => [
-            'http://HOSTER.de/file123.php'
+            'http://HOSTER.de/foo.php',
         ]
     ],
 
 ];
 
 foreach ($providers as $provider) {
-    include_once $provider['include'];
+    copy(dirname(__FILE__) . '/src/provider.php', $provider['path'] . '/provider.php');
+
+    include_once $provider['path'] . '/' . $provider['include'];
 
     foreach($provider['urls'] as $url) {
         $hoster = new $provider['class']($url, '', '', [], '', false);
