@@ -13,7 +13,7 @@ if(!class_exists('TheiNaDProvider')) {
     abstract class TheiNaDProvider
     {
 
-        protected static $safeCharacters = array(
+        protected static $unsafeCharacters = array(
             'search' => array(
                 'ß',
                 'ä',
@@ -34,6 +34,8 @@ if(!class_exists('TheiNaDProvider')) {
                 '*',
                 "\n",
                 "\r",
+                '![CDATA[',
+                ']]',
             ),
             'replace' => array(
                 'ss',
@@ -54,6 +56,8 @@ if(!class_exists('TheiNaDProvider')) {
                 '',
                 '',
                 ' ',
+                '',
+                '',
                 '',
             ),
         );
@@ -174,7 +178,7 @@ if(!class_exists('TheiNaDProvider')) {
          */
         protected function safeFilename($filename)
         {
-            return str_replace(self::$safeCharacters['search'], self::$safeCharacters['replace'], $filename);
+            return str_replace(self::$unsafeCharacters['search'], self::$unsafeCharacters['replace'], $filename);
         }
 
         /**
