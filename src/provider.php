@@ -3,8 +3,8 @@
  * Basic Synology Hosting Provider Boilerplate
  *
  * @author Daniel Gehn <me@theinad.com>
- * @version 0.2
- * @copyright 2015 Daniel Gehn
+ * @version 0.3
+ * @copyright 2016 Daniel Gehn
  * @license http://opensource.org/licenses/MIT Licensed under MIT License
  */
 
@@ -145,9 +145,10 @@ if(!class_exists('TheiNaDProvider')) {
          * Unified curl request handling
          *
          * @param $url Url which should be requested
+         * @param $options modify curl options
          * @return null | String
          */
-        protected function curlRequest($url)
+        protected function curlRequest($url, $options = array())
         {
             $curl = curl_init();
 
@@ -157,6 +158,10 @@ if(!class_exists('TheiNaDProvider')) {
             curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
             curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
             curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+
+            foreach($options as $option => $value) {
+                curl_setopt($curl, $option, $value);
+            }
 
             $result = curl_exec($curl);
 
